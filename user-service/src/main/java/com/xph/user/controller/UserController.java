@@ -1,4 +1,4 @@
-package com.xph.controller;
+package com.xph.user.controller;
 
 import com.xph.user.pojo.User;
 import com.xph.user.service.UserService;
