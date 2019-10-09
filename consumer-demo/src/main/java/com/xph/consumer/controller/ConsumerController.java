@@ -24,8 +24,11 @@ public class ConsumerController {
 
     @GetMapping("{id}")
     public User queryByid(@PathVariable("id")Long id){
+        // 根据服务id获取实例
         List<ServiceInstance> instances = discoveryClient.getInstances("user-service");
+        // 从所有实例中取出一个具体的实例
         ServiceInstance instance = instances.get(0);
+        // 根据具体的一个实例中获取id与端口，拼接url
         String url = "http://" + instance.getHost() + ":" + instance.getPort() + "/user/"+id;
         System.out.println(url);
         User user = restTemplate.getForObject(url,User.class);
