@@ -17,3 +17,27 @@ eureka:
 user-service:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+# 配置超时时长
+hystrix:
+  command:
+    # 默认的使用的超时时长 -对所有方法生效
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+    # 对某个服务配置超时时长 -对此服务下的所有方法生效
+    user-service: # 服务名
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1500
+    # 方法一：针对某个方法配置超时时长 -只对此方法生效，
+    # 方法二：直接在方法上写注解配置，可以见ConsumerController.java中
+    # 两种同时配置时根据配置文件的时间来执行
+#    queryByid: # 方法名
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 1500
