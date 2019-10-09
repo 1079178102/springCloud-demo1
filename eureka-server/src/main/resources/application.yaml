@@ -23,3 +23,6 @@ eureka:
 #    lease-renewal-interval-in-seconds: 30
 #    # 最小过期时长（秒），默认90
 #    lease-expiration-duration-in-seconds: 90
+#  server:
+#    # 失效剔除周期（毫秒），默认60s
+#    eviction-interval-timer-in-ms: 60000

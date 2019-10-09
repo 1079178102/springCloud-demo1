@@ -1,14 +1,19 @@
-#配置端口号
+# 配置端口号
 server:
   port: 8080
 
-#配置注册到eureka上时服务的名称
+# 配置注册到eureka上时服务的名称
 spring:
   application:
     name: consumer-service
 
-#配置需要注册的服务
+# 配置需要注册的服务
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+
+# 配置user-service服务中负载均衡器使用算法为RandomRule，默认RandomRule(轮询)
+user-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
