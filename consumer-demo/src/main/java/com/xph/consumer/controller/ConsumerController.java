@@ -30,7 +30,6 @@ public class ConsumerController {
         ServiceInstance instance = instances.get(0);
         // 根据具体的一个实例中获取id与端口，拼接url
         String url = "http://" + instance.getHost() + ":" + instance.getPort() + "/user/"+id;
-        System.out.println(url);
         User user = restTemplate.getForObject(url,User.class);
         return user;
     }
