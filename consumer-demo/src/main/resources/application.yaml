@@ -5,7 +5,7 @@ server:
 #配置注册到eureka上时服务的名称
 spring:
   application:
-    name: cunsumer-service
+    name: consumer-service
 
 #配置需要注册的服务
 eureka:
