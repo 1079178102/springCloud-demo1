@@ -1,9 +1,15 @@
 server:
   port: 8081
 spring:
+  application:
+    name: user-service
   datasource:
     url: jdbc:mysql://localhost:3306/springclouddemo?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: root
 mybatis:
   type-aliases-package: com.xph.user.pojo
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
