@@ -43,10 +43,11 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
 
-# Ribbon与Hystrix超时问题区域 <-S
+# Zuul的负载均衡和熔断 <-S
+# ribbon的超时时长，真实值是(read + connect) * 2 , 必须小于hystrix时长
 ribbon:
-  ReadTimeout: 3000
-  SocketTimeout: 2000
+  ReadTimeout: 2500
+  SocketTimeout: 500
 
 hystrix:
   command:
@@ -54,6 +55,6 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 3500
+            timeoutInMilliseconds: 6500
 
-# Ribbon与Hystrix超时问题区域 <-E
+# Zuul的负载均衡和熔断 <-E

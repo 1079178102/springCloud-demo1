@@ -12,6 +12,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public User findById(Long id) {
+        // 模拟超时
         try {
             Thread.sleep(2000L);
         } catch (InterruptedException e) {
