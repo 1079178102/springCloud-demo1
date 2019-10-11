@@ -45,6 +45,7 @@ eureka:
 
 # Zuul的负载均衡和熔断 <-S
 # ribbon的超时时长，真实值是(read + connect) * 2 , 必须小于hystrix时长
+# 计算公式：ribbonTimeout = （ribbonReadTimeout + ribbonConnectTimeout) * ( maxAutoRetries + 1) * ( maxAutoRetriesNextServer + 1)
 ribbon:
   ReadTimeout: 2500
   SocketTimeout: 500
@@ -55,6 +56,6 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 6500
+            timeoutInMilliseconds: 7000
 
 # Zuul的负载均衡和熔断 <-E

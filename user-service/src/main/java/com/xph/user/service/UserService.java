@@ -2,8 +2,11 @@ package com.xph.user.service;
 
 import com.xph.user.mapper.UserMapper;
 import com.xph.user.pojo.User;
+import com.xph.user.pojo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -19,5 +22,13 @@ public class UserService {
             e.printStackTrace();
         }
         return userMapper.selectByPrimaryKey(id);
+    }
+
+    public List<UserInfo> findAllUserInfo(){
+        return  userMapper.findAllUserInfo();
+    }
+
+    public UserInfo findUserInfoByUsername(String username){
+        return userMapper.findUserInfoByUsername(username);
     }
 }
